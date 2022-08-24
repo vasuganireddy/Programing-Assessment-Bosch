@@ -1,0 +1,23 @@
+---
+# tasks file for getting-started
+- name: download and unarchive the app source code
+  ansible.builtin.unarchive:
+    src: https://github.com/docker/getting-started/archive/refs/heads/master.zip
+    dest: /tmp
+    remote_src: yes
+- name: copy/modify the dockefile
+  copy:
+    src: Dockerfile
+    dest: /tmp/getting-started-master/Dockerfile
+- name: copy/modify the docker-compose.yml
+  copy:
+    src: docker-compose.yml
+    dest: /tmp/getting-started-master/docker-compose.yml
+- name: copy the compose.sh script
+  copy:
+    src: docker-compose.sh
+    dest: /tmp/getting-started-master/docker-compose.sh
+- name: docker compose up
+  command: sh /tmp/getting-started-master/docker-compose.sh
+  become: True
+  become_user: ansible

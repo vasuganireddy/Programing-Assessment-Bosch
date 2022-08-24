@@ -1,0 +1,8 @@
+---
+- hosts: appservers
+  become: yes
+  vars:
+    app_port: '{{ app_port }}'
+  roles:
+    - {role: docker}
+    - {role: getting-started}
