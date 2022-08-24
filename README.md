@@ -3,7 +3,7 @@ Create deployment scripts using Ansible to deploy an application to some target 
 
 Infra Setup
 -----------------
-Ansible Master - 
+Ansible Master - 3.109.144.189
 Deploymnent App -  IP (where the todo application deployed)
 application url: http://13.233.200.70:3000
 
